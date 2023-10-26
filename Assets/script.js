@@ -4,33 +4,25 @@
 $(document).ready(function(){
 // display time at top of page
   const CurrentTime = document.getElementById("currentDay");
-  CurrentTime.textContent = dayjs().format("dddd h:mm MMM DD");
-// create the logic for making the 9am-5pm blocks.
-// defining all children of the blocks.
-const TimeBlock = document.createElement("div");
-const TimeBlockhour = document.createElement("div");
-const Timeblockfield = document.createElement("textarea");
-const Timeblockbutton = document.createElement("button")
-const Timeblockicon = document.createElement("i")
-// adding classes and attributes to children.
-  TimeBlock.classList.add("row", "time-block", "past");
-  TimeBlockhour.classList.add("col-2", "col-md-1", "hour", "text-center", "py-3")
-  Timeblockfield.classList.add("col-8","col-md-10", "description");
-  Timeblockfield.setAttribute("rows", "3");
-  Timeblockbutton.classList.add("btn", "saveBtn", "col-2", "col-md-1");
-  Timeblockbutton.setAttribute("aria-label","save");
-  Timeblockicon.classList.add("fas", "fa-save")
-  Timeblockicon.setAttribute("aria-hidden", "true")
-// appending them to eachother and displaying the block.
-    document.body.appendChild(TimeBlock)
-    TimeBlock.appendChild(TimeBlockhour)
-    TimeBlock.appendChild(Timeblockfield)
-    TimeBlock.appendChild(Timeblockbutton)
-    Timeblockbutton.appendChild(Timeblockicon)
+  CurrentTime.textContent = dayjs().format("dddd h:mmA MMM DD");
 
-// create the blocks for respective hour.
 
-// read ID of time block and adjust class based on current hour
+// grab current hour
+var hour = dayjs().format("hA");
+console.log(hour);
+
+// grab all time-blocks
+// change class of time-blocks based on hour 
+ for (i = 0; i < 9; i++ ){
+  var values = document.getElementsByClassName("time-block")[i].id;
+  
+  console.log(values)
+  if (values > hour){
+  
+  }
+ }
+
+
 
 // save text entry in time block to local storage
 
