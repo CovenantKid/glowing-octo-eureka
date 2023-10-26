@@ -8,19 +8,25 @@ $(document).ready(function(){
 
 
 // grab current hour
-var hour = dayjs().format("hA");
-console.log(hour);
+var hour = dayjs().format("HH");
+console.log("current hour is",hour);
 
-// grab all time-blocks
+
 // change class of time-blocks based on hour 
+// first interate through all items with class of time-block.
  for (i = 0; i < 9; i++ ){
-  var values = document.getElementsByClassName("time-block")[i].id;
-  
-  console.log(values)
-  if (values > hour){
-  
-  }
- }
+  var IDS = document.getElementsByClassName("time-block")[i].id;
+
+  // past
+  if (IDS < hour){
+    activeID = document.getElementById(IDS).classList.add("past")
+  // future
+  } else if(IDS > hour){
+    document.getElementById(IDS).classList.add("future")
+  // present
+  } else{
+    document.getElementById(IDS).classList.add("present")
+  }}
 
 
 
