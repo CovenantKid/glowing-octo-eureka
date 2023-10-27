@@ -1,6 +1,3 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 $(document).ready(function(){
 // display time at top of page
   const CurrentTime = document.getElementById("currentDay");
@@ -28,14 +25,31 @@ console.log("current hour is",hour);
     document.getElementById(IDS).classList.add("present")
   }}
 
-
-
 // save text entry in time block to local storage
+// first grab all save buttons from the HTML doc.
+// And apply an event listener to all buttons that call the same function.
+  saveButtons = document.getElementsByClassName("saveBtn")
+  for( i of saveButtons){
+    i.addEventListener("click",save,this)
+  }
 
-// when page loads, also load saved data.
+
 });
 
+// in the save function, we first get the parent node id we are saving to.
+// we use this to identify the text block that will be saved and where. 
+function save(){
+  // grabbing parent node
+ var parent = this.parentNode;
+//  grabbing just the id of the parent node
+ var parentID = parent.id;
+// grabbing the text from the typed field
+var parentTextArea = document.getElementById("09text").value
+console.log(parentTextArea)
+var saved = localStorage.setItem(parentID,"hello")
 
+
+}
 
 
 
@@ -56,15 +70,8 @@ console.log("current hour is",hour);
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
+
 
