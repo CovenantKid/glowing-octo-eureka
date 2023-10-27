@@ -1,9 +1,9 @@
 $(document).ready(function(){
-// display time at top of page
+// display time at top of page using day.js in 12 hour format plus the day, month.
   const CurrentTime = document.getElementById("currentDay");
   CurrentTime.textContent = dayjs().format("dddd h:mmA MMM DD");
 
-// grab current hour
+// grab current hour in 24 hour format from day.js
 var hour = dayjs().format("HH");
 console.log("current hour is",hour);
 
