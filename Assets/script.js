@@ -43,7 +43,6 @@ var currentID = document.getElementById(currentKey + "text")
 // checking if the text content is null. otherwise, write the text.
 if (currentKeyText == null) {
   console.log("No text to load for", currentKey, "continuing.")
-  continue
 } else{
   // setting the text content of the block to the saved text from the key.
   currentID.textContent = currentKeyText
