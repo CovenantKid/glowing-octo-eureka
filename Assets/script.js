@@ -40,12 +40,16 @@ var currentKey = localStorage.key(i)
 var currentKeyText = localStorage.getItem(currentKey)
 // grabbing the id equivelent of the key from part 1. This will be used to write the text that belongs to that time block.
 var currentID = document.getElementById(currentKey + "text")
-if (currentKeyText !== null) {
+// checking if the text content is null. otherwise, write the text.
+if (currentKeyText == null) {
   console.log("No text to load for", currentKey, "continuing.")
   continue
+} else{
+  // setting the text content of the block to the saved text from the key.
+  currentID.textContent = currentKeyText
 }
-// setting the text content of the block to the saved text from the key.
-currentID.textContent = currentKeyText
+
+
 
 }}
 });
